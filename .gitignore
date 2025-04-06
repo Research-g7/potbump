@@ -1,0 +1,36 @@
+# 🚫 Ignore Data and Model Files
+YOLO/
+data/models/
+data/sounds/
+*.kml
+camera_stream_qr.png
+
+# 🔒 Ignore Environment Variables and Secrets
+.env
+*.env
+config.ini
+
+# 🐍 Ignore Python Files and Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# 🧠 Ignore IDE Specific Files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# 📜 Ignore Logs and Databases
+*.log
+*.sqlite
+
+# 📁 Ignore Temporary Files
+tmp/
+temp/
