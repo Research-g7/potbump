@@ -22,10 +22,25 @@ import requests  # Add this import
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from pathlib import Path
 
-# Initialize YOLO models for pothole and speed bump detection
-pothole_model = YOLO("YOLO/POTHOLE5/best.pt")
-speedbump_model = YOLO("YOLO/SPEEDBUMPS5/best.pt")
+# Set up base paths
+ROOT_DIR = Path(__file__).parent.parent
+DATA_DIR = ROOT_DIR / "data"
+MODELS_DIR = DATA_DIR / "models"
+SOUNDS_DIR = DATA_DIR / "sounds"
+
+# Update model paths
+pothole_model = YOLO(str(MODELS_DIR / "POTHOLE5/best.pt"))
+speedbump_model = YOLO(str(MODELS_DIR / "SPEEDBUMPS5/best.pt"))
+
+# Update sound paths
+POTHOLE_SOUND = str(SOUNDS_DIR / "pothole_alert.mp3")
+SPEEDBUMP_SOUND = str(SOUNDS_DIR / "speedbump_alert.mp3")
+
+# Create required directories
+os.makedirs(MODELS_DIR, exist_ok=True)
+os.makedirs(SOUNDS_DIR, exist_ok=True)
 
 # Optional: Set CUDA device if available
 import torch
@@ -46,13 +61,6 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Initialize geolocator (for location)
 geolocator = Nominatim(user_agent="PotholeDetectionApp")
-
-# Create sounds directory if it doesn't exist
-os.makedirs("sounds", exist_ok=True)
-
-# Add sound file paths (you'll need to create/download these sound files)
-POTHOLE_SOUND = "sounds/pothole_alert.mp3"
-SPEEDBUMP_SOUND = "sounds/speedbump_alert.mp3"
 
 # Global variables
 cap = None
