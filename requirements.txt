@@ -1,0 +1,14 @@
+ultralytics
+opencv-python
+cvzone
+flask
+geopy
+lxml
+playsound
+qrcode
+requests
+supabase
+torch
+serial
+pynmea2
+folium
