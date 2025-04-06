@@ -1,4 +1,4 @@
-# Road Hazard Detection System
+# PotBump
 
 Real-time detection system for road hazards like potholes and speed bumps using YOLO and computer vision.
 
@@ -6,8 +6,8 @@ Real-time detection system for road hazards like potholes and speed bumps using 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/road-hazard-detection.git
-cd road-hazard-detection
+git clone https://github.com/Research-g7/potbump.git
+cd potbump
 ```
 
 2. Create and activate virtual environment:
